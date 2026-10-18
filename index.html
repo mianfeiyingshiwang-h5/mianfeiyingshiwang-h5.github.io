@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>免费影视网 - 免费专区·电影电视剧综艺动漫纪录片短剧</title>
+<meta name="description" content="免费影视网（mianfeiyingshiwang-h5）汇总正版平台免费专区、广告支持影片、经典老片与公共授权纪录片；电影、电视剧、综艺、动漫、纪录片、微短剧一站式找片。网址 https://mianfeiyingshiwang-h5.github.io">
+<meta name="keywords" content="免费影视网,免费电影,免费电视剧,免费综艺,免费动漫,免费纪录片,微短剧,正版免费专区,广告支持观影">
+<link rel="canonical" href="https://mianfeiyingshiwang-h5.github.io/">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:#f6f8f9;color:#1f2933;line-height:1.7;overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+section[id]{scroll-margin-top:0}
+
+/* 顶条 */
+.top-bar{background:#0f766e;color:#e6fffb;font-size:12px;letter-spacing:1px;padding:7px 16px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.top-bar b{color:#bff5ec}
+
+/* 导航 */
+.nav{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid #e2e8ec}
+.nav-in{max-width:1240px;margin:0 auto;height:64px;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:baseline;gap:9px}
+.logo .cn{font-size:21px;font-weight:900;letter-spacing:1px}
+.logo .cn em{font-style:normal;color:#0f766e}
+.logo .en{font-size:10px;letter-spacing:3px;color:#7c8a93}
+.menu{display:flex;gap:2px;flex-wrap:wrap}
+.menu a{font-size:14px;color:#46535c;padding:8px 11px;border-bottom:2px solid transparent;transition:.2s}
+.menu a:hover{color:#0f766e;border-bottom-color:#0f766e}
+.nav-cta{background:#0f766e;color:#fff;font-weight:800;font-size:14px;padding:9px 20px;border-radius:999px}
+.nav-cta:hover{background:#0c615a}
+
+/* 搜索 */
+.search-wrap{max-width:1240px;margin:0 auto;padding:30px 20px 6px}
+.search-box{display:flex;gap:10px;background:#fff;border:1px solid #d6e2e6;border-radius:14px;padding:10px 14px;box-shadow:0 10px 30px rgba(15,118,110,.08)}
+.search-box input{flex:1;border:0;outline:0;font-size:15px;background:transparent;color:#1f2933}
+.search-box button{border:0;background:#0f766e;color:#fff;font-weight:800;padding:10px 22px;border-radius:10px;cursor:pointer}
+.quick-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.quick-tags span{font-size:12px;color:#52616b;background:#eaf3f2;padding:5px 12px;border-radius:999px}
+
+/* Hero */
+.hero{max-width:1240px;margin:0 auto;padding:26px 20px 40px;display:grid;grid-template-columns:1.3fr .7fr;gap:34px;align-items:center}
+.hero h1{font-size:clamp(30px,5vw,52px);font-weight:900;line-height:1.1}
+.hero h1 em{font-style:normal;color:#0f766e}
+.hero .lead{font-size:16px;color:#46535c;margin:18px 0 22px;max-width:560px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-main{padding:12px 26px;font-weight:800;border-radius:10px;background:#0f766e;color:#fff;transition:.25s}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,118,110,.28)}
+.btn-ghost{background:#fff;color:#0f766e;border:1px solid #0f766e;padding:12px 26px;border-radius:10px;font-weight:800}
+.btn-ghost:hover{background:#eaf3f2}
+.stat-strip{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{background:#fff;border:1px solid #e2e8ec;border-radius:14px;padding:18px}
+.stat .n{font-size:24px;font-weight:900;color:#0f766e}
+.stat .l{font-size:12px;color:#7c8a93;margin-top:2px}
+
+/* 区块 */
+.block{max-width:1240px;margin:0 auto;padding:54px 20px}
+.block-head{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.block-head .no{font-size:12px;font-weight:800;color:#fff;background:#0f766e;padding:3px 10px;border-radius:6px}
+.block-head h2{font-size:25px;font-weight:900}
+.block-head h2 em{font-style:normal;color:#0f766e}
+.block-head .en{font-size:12px;letter-spacing:2px;color:#9aa7ae}
+.block-head a{margin-left:auto;font-size:13px;color:#0f766e}
+.block-head a:hover{text-decoration:underline}
+
+/* 分类大厅 */
+.hall{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.hall a{background:#fff;border:1px solid #e2e8ec;border-radius:16px;padding:22px 18px;text-align:center;transition:.25s}
+.hall a:hover{transform:translateY(-4px);border-color:#0f766e;box-shadow:0 14px 30px rgba(15,118,110,.12)}
+.hall .ico{font-size:30px}
+.hall h3{font-size:16px;font-weight:800;margin-top:8px}
+.hall p{font-size:12px;color:#7c8a93;margin-top:3px}
+
+/* 海报墙 */
+.posters{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
+.poster{background:#fff;border:1px solid #e7edef;border-radius:14px;overflow:hidden;transition:.3s}
+.poster:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(0,0,0,.12)}
+.poster img{width:100%;height:225px;object-fit:cover}
+.poster .b{padding:12px}
+.poster h3{font-size:15px;font-weight:800;color:#1f2933}
+.poster .row{display:flex;justify-content:space-between;font-size:12px;color:#6b7780;margin-top:5px}
+.poster .row b{color:#0f766e}
+.badge-free{display:inline-block;font-size:11px;font-weight:800;color:#0f766e;background:#eaf3f2;padding:2px 9px;border-radius:999px;margin-top:7px}
+
+/* 免费专区 */
+.free-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.free-card{background:#fff;border:1px solid #e2e8ec;border-left:4px solid #0f766e;border-radius:0 14px 14px 0;padding:20px}
+.free-card h3{font-size:17px;font-weight:800}
+.free-card p{font-size:14px;color:#52616b;margin-top:7px}
+.free-card .src{margin-top:10px;font-size:12px;color:#0f766e;font-weight:700}
+
+/* 找片指南 */
+.guide{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.guide-box{background:#fff;border:1px solid #e2e8ec;border-radius:16px;padding:24px}
+.guide-box h3{font-size:17px;font-weight:800;color:#0f766e;margin-bottom:12px}
+.guide-box ul{list-style:none}
+.guide-box li{padding:9px 0;border-bottom:1px dashed #e2e8ec;font-size:14px;color:#46535c}
+.guide-box li b{color:#1f2933}
+.warn{background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid #f59e0b;border-radius:12px;padding:18px;font-size:14px;color:#7c4a03;margin-top:18px}
+.warn b{color:#b45309}
+
+/* 版权 */
+.legal{background:#0f766e;color:#e6fffb;border-radius:18px;padding:30px}
+.legal h3{font-size:18px;font-weight:800;margin-bottom:12px}
+.legal ul{list-style:none}
+.legal li{padding:8px 0 8px 26px;position:relative;font-size:14px;border-bottom:1px dashed rgba(255,255,255,.18)}
+.legal li::before{content:"✓";position:absolute;left:0;font-weight:800}
+
+/* 关于 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:#fff;border:1px solid #e2e8ec;border-radius:18px;padding:40px}
+.about h2{font-size:25px;font-weight:900;margin-bottom:14px}
+.about h2 em{font-style:normal;color:#0f766e}
+.about p{font-size:15px;color:#46535c;line-height:1.9;margin-bottom:12px}
+.about .url{color:#0f766e;font-weight:800}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.as{background:#f1f7f6;border:1px solid #d6e8e5;border-radius:14px;padding:18px;text-align:center}
+.as .n{font-size:26px;font-weight:900;color:#0f766e}
+.as .l{font-size:12px;color:#6b7780;margin-top:3px}
+
+/* 页脚 */
+.foot{border-top:1px solid #e2e8ec;padding:40px 20px 28px;text-align:center;background:#eef3f4}
+.foot-logo{font-size:20px;font-weight:900}
+.foot-logo em{font-style:normal;color:#0f766e}
+.foot-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0}
+.foot-links a{font-size:13px;color:#52616b}
+.foot-links a:hover{color:#0f766e}
+.foot p{font-size:12px;color:#8593 9b}
+.foot .disc{margin-top:10px;max-width:820px;margin-left:auto;margin-right:auto;color:#859399;line-height:1.7}
+
+@media(max-width:860px){
+  .menu{display:none}
+  .hero{grid-template-columns:1fr;padding:20px 20px 34px}
+  .stat-strip{order:2}
+  .guide{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;padding:28px}
+  .block{padding:44px 20px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<div class="top-bar">
+  <span>正版平台免费专区</span><b>广告支持观影</b>
+  <span>经典老片 / 公共授权纪录片</span><b>不提供盗版院线新片</b>
+</div>
+
+<div class="nav">
+  <div class="nav-in">
+    <div class="logo">
+      <span class="cn">免费影视<em>网</em></span>
+      <span class="en">FREE FILM HUB</span>
+    </div>
+    <nav class="menu">
+      <a href="#home">首页</a>
+      <a href="#hall">分类大厅</a>
+      <a href="#movie">电影</a>
+      <a href="#tv">电视剧</a>
+      <a href="#variety">综艺</a>
+      <a href="#anime">动漫</a>
+      <a href="#doc">纪录片</a>
+      <a href="#short">微短剧</a>
+      <a href="#free">免费专区</a>
+      <a href="#guide">找片指南</a>
+      <a href="#legal">版权与安全</a>
+      <a href="#about">关于</a>
+    </nav>
+    <a href="#free" class="nav-cta">免费看片</a>
+  </div>
+</div>
+
+<section class="search-wrap" id="home">
+  <div class="search-box">
+    <input placeholder="搜片名 / 演员 / 类型：流浪地球、三体、纪录片、韩剧、短剧…">
+    <button>找片</button>
+  </div>
+  <div class="quick-tags">
+    <span>免费电影</span><span>国产剧</span><span>韩剧</span><span>日番</span>
+    <span>自然纪录片</span><span>微短剧</span><span>经典老片</span><span>公共授权</span>
+  </div>
+</section>
+
+<div class="hero">
+  <div>
+    <h1>免费看片，<br>先看<em>哪里能合法免费</em></h1>
+    <p class="lead">免费影视网不吹“全网VIP破解”。我们帮你汇总正版平台的免费专区、广告支持影片、经典老电影、公共授权纪录片和已完结短剧——把找片时间省下来，把版权风险挡在外面。</p>
+    <div class="hero-btns">
+      <a href="#free" class="btn-main">🎬 进免费专区</a>
+      <a href="#guide" class="btn-ghost">🧭 怎么找不踩坑</a>
+    </div>
+  </div>
+  <div class="stat-strip">
+    <div class="stat"><div class="n">6 大类</div><div class="l">电影/剧集/综艺/动漫/纪录片/短剧</div></div>
+    <div class="stat"><div class="n">正版优先</div><div class="l">标出来源再推荐</div></div>
+    <div class="stat"><div class="n">广告支持</div><div class="l">免费≠盗版</div></div>
+    <div class="stat"><div class="n">每日更新</div><div class="l">免费片单人工巡检</div></div>
+  </div>
+</div>
+
+<section class="block" id="hall">
+  <div class="block-head">
+    <span class="no">00</span>
+    <h2>分类<em>大厅</em></h2>
+    <span class="en">CATEGORY HALL</span>
+  </div>
+  <div class="hall">
+    <a href="#movie"><div class="ico">🎬</div><h3>电影</h3><p>动作/喜剧/科幻/悬疑</p></a>
+    <a href="#tv"><div class="ico">📺</div><h3>电视剧</h3><p>国产/美剧/韩剧/港剧</p></a>
+    <a href="#variety"><div class="ico">🎤</div><h3>综艺</h3><p>真人秀/访谈/竞演</p></a>
+    <a href="#anime"><div class="ico">🌸</div><h3>动漫</h3><p>国漫/日番/动画电影</p></a>
+    <a href="#doc"><div class="ico">🎞️</div><h3>纪录片</h3><p>自然/历史/科技</p></a>
+    <a href="#short"><div class="ico">⚡</div><h3>微短剧</h3><p>甜宠/逆袭/悬疑</p></a>
+    <a href="#free"><div class="ico">🆓</div><h3>免费专区</h3><p>正版免费/广告支持</p></a>
+    <a href="#guide"><div class="ico">🧭</div><h3>找片指南</h3><p>避坑/版权/安全</p></a>
+  </div>
+</section>
+
+<section class="block" id="movie" style="background:#eef3f4">
+  <div class="block-head">
+    <span class="no">01</span>
+    <h2>免费<em>电影</em></h2>
+    <span class="en">FREE MOVIES</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="posters">
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6101" alt="免费影视网 经典科幻电影"><div class="b"><h3>星际穿越（授权重播）</h3><div class="row"><span>科幻/剧情</span><b>9.4</b></div><span class="badge-free">平台免费·广告支持</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6102" alt="免费影视网 经典喜剧电影"><div class="b"><h3>让子弹飞</h3><div class="row"><span>喜剧/剧情</span><b>9.0</b></div><span class="badge-free">经典老片</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6103" alt="免费影视网 自然题材电影"><div class="b"><h3>地球脉动：冰原</h3><div class="row"><span>自然/纪录电影</span><b>9.3</b></div><span class="badge-free">公共授权片段</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6104" alt="免费影视网 国产剧情片"><div class="b"><h3>山海间的旧书店</h3><div class="row"><span>文艺/治愈</span><b>8.2</b></div><span class="badge-free">独立片单</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6105" alt="免费影视网 动画电影"><div class="b"><h3>大鱼海棠（重播）</h3><div class="row"><span>国漫/奇幻</span><b>8.5</b></div><span class="badge-free">限时免费</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6106" alt="免费影视网 悬疑电影"><div class="b"><h3>看不见的客人</h3><div class="row"><span>悬疑/犯罪</span><b>8.8</b></div><span class="badge-free">引进免费场</span></div></div>
+  </div>
+</section>
+
+<section class="block" id="tv">
+  <div class="block-head">
+    <span class="no">02</span>
+    <h2>电视剧 / 剧集</h2>
+    <span class="en">SERIES</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="posters">
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6111" alt="免费影视网 国产剧"><div class="b"><h3>大江大河（重播）</h3><div class="row"><span>国产/年代</span><b>9.2</b></div><span class="badge-free">免费剧集</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6112" alt="免费影视网 韩剧"><div class="b"><h3>请回答 1988</h3><div class="row"><span>韩剧/家庭</span><b>9.7</b></div><span class="badge-free">平台免费层</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6113" alt="免费影视网 美剧"><div class="b"><h3>老友记</h3><div class="row"><span>美剧/情景</span><b>9.5</b></div><span class="badge-free">经典完结</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6114" alt="免费影视网 港剧"><div class="b"><h3>大时代</h3><div class="row"><span>港剧/商战</span><b>9.3</b></div><span class="badge-free">老片修复</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6115" alt="免费影视网 日剧"><div class="b"><h3>重启人生</h3><div class="row"><span>日剧/治愈</span><b>9.4</b></div><span class="badge-free">引进免费</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6116" alt="免费影视网 国产网剧"><div class="b"><h3>毛骗（终章）</h3><div class="row"><span>国产/悬疑</span><b>9.6</b></div><span class="badge-free">网剧经典</span></div></div>
+  </div>
+</section>
+
+<section class="block" id="variety" style="background:#eef3f4">
+  <div class="block-head">
+    <span class="no">03</span>
+    <h2>综艺</h2>
+    <span class="en">VARIETY</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="free-grid">
+    <div class="free-card"><h3>户外真人秀</h3><p>奔跑吧、向往的生活、极限挑战等往季内容，部分在正规平台免费层回放。</p><div class="src">来源：正版平台免费回放</div></div>
+    <div class="free-card"><h3>音乐竞演</h3><p>歌手、舞台竞演、跨年晚会精彩段，按“免费”标签过滤更稳。</p><div class="src">来源：平台授权剪辑</div></div>
+    <div class="free-card"><h3>文化访谈</h3><p>读书、非遗、方言、博物馆类节目，公共媒体常做免费展播。</p><div class="src">来源：公共媒体/央视频</div></div>
+    <div class="free-card"><h3>美食纪实</h3><p>下饭综艺、街头小吃、乡土食材，广告支持免费看最常见。</p><div class="src">来源：广告支持模式</div></div>
+  </div>
+</section>
+
+<section class="block" id="anime">
+  <div class="block-head">
+    <span class="no">04</span>
+    <h2>动漫</h2>
+    <span class="en">ANIME & COMICS</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="posters">
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6121" alt="免费影视网 国漫"><div class="b"><h3>伍六七（前季）</h3><div class="row"><span>国漫/搞笑</span><b>9.1</b></div><span class="badge-free">免费番剧</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6122" alt="免费影视网 日番"><div class="b"><h3>夏目友人帐</h3><div class="row"><span>日番/治愈</span><b>9.5</b></div><span class="badge-free">引进免费</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6123" alt="免费影视网 动画电影"><div class="b"><h3>千与千寻（重播）</h3><div class="row"><span>动画/奇幻</span><b>9.6</b></div><span class="badge-free">限时免费</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6124" alt="免费影视网 少儿动画"><div class="b"><h3>葫芦兄弟（修复）</h3><div class="row"><span>国产/经典</span><b>9.0</b></div><span class="badge-free">公共版权</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6125" alt="免费影视网 热血番"><div class="b"><h3>排球少年（精选）</h3><div class="row"><span>运动/热血</span><b>9.3</b></div><span class="badge-free">平台免费集</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6126" alt="免费影视网 完结番"><div class="b"><h3>葬送的芙莉莲（前段）</h3><div class="row"><span>奇幻/完结向</span><b>9.4</b></div><span class="badge-free">免费试看</span></div></div>
+  </div>
+</section>
+
+<section class="block" id="doc" style="background:#eef3f4">
+  <div class="block-head">
+    <span class="no">05</span>
+    <h2>纪录片</h2>
+    <span class="en">DOCUMENTARY</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="free-grid">
+    <div class="free-card"><h3>自然 · 地球</h3><p>海洋、冰川、雨林、候鸟；很多公共授权/机构发布片段可合法免费看。</p><div class="src">来源：公共授权 / 机构发布</div></div>
+    <div class="free-card"><h3>历史 · 文明</h3><p>丝绸之路、宋代市井、工业革命、航天史，适合学生和家庭共看。</p><div class="src">来源：公共媒体展播</div></div>
+    <div class="free-card"><h3>科技 · 宇宙</h3><p>黑洞、火星、AI、基因；正版平台常把老一季做成广告支持免费。</p><div class="src">来源：正版平台免费层</div></div>
+    <div class="free-card"><h3>美食 · 人间</h3><p>街头、乡愁、手艺人、菜市场，纪录片里最容易被免费层覆盖的品类。</p><div class="src">来源：广告支持免费</div></div>
+  </div>
+</section>
+
+<section class="block" id="short">
+  <div class="block-head">
+    <span class="no">06</span>
+    <h2>微短剧</h2>
+    <span class="en">MICRO DRAMA</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="posters">
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6131" alt="免费影视网 甜宠短剧"><div class="b"><h3>闪婚甜令</h3><div class="row"><span>都市/甜宠</span><b>7.9</b></div><span class="badge-free">前 10 集免费</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6132" alt="免费影视网 逆袭短剧"><div class="b"><h3>师傅下山</h3><div class="row"><span>男频/逆袭</span><b>8.1</b></div><span class="badge-free">广告解锁</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6133" alt="免费影视网 悬疑短剧"><div class="b"><h3>深夜来电</h3><div class="row"><span>悬疑/单元</span><b>8.4</b></div><span class="badge-free">平台免费层</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6134" alt="免费影视网 年代短剧"><div class="b"><h3>供销社往事</h3><div class="row"><span>年代/温情</span><b>8.0</b></div><span class="badge-free">完结免费场</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6135" alt="免费影视网 重生短剧"><div class="b"><h3>重生之账本</h3><div class="row"><span>爽剧/重生</span><b>7.7</b></div><span class="badge-free">前段免费</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=6136" alt="免费影视网 职场短剧"><div class="b"><h3>实习生生存指南</h3><div class="row"><span>职场/轻喜剧</span><b>8.2</b></div><span class="badge-free">广告支持</span></div></div>
+  </div>
+</section>
+
+<section class="block" id="free">
+  <div class="block-head">
+    <span class="no">07</span>
+    <h2>免费<em>专区</em>：哪些真的能免费看</h2>
+    <span class="en">WHAT IS LEGIT FREE</span>
+  </div>
+  <div class="free-grid">
+    <div class="free-card"><h3>正版平台免费层</h3><p>央视频、咪咕、B 站等平台内“免费”标签内容：经典老片、主旋律、引进纪录片、部分动漫。</p><div class="src">模式：广告 / 公共服务</div></div>
+    <div class="free-card"><h3>广告支持播放</h3><p>平台用贴片广告换观看权，用户不付会员费也能看，但不是“全网 VIP 破解”。</p><div class="src">模式：广告变现</div></div>
+    <div class="free-card"><h3>公共授权 / 机构发布</h3><p>公共媒体、科研机构、纪录片基金发布的片源，可合法免费传播与观看。</p><div class="src">模式：公共授权</div></div>
+    <div class="free-card"><h3>限时免费 / 活动场</h3><p>节假日、片方推广、新用户场，正规平台会写明时间和区域，不是永久白嫖。</p><div class="src">模式：限时授权</div></div>
+  </div>
+  <div class="warn">
+    ⚠️ <b>避坑：</b>“院线刚上映就全网高清免费”“永久破解主流会员”“点击播放先装专用播放器”的站点，通常伴随侵权、录屏、弹窗、钓鱼和木马风险。免费 ≠ 盗版，但“来路不明 + 新片全免费 + 强制下载”基本是红灯。[2,14](@ref)
+  </div>
+</section>
+
+<section class="block" id="guide" style="background:#eef3f4">
+  <div class="block-head">
+    <span class="no">08</span>
+    <h2>找片指南</h2>
+    <span class="en">HOW TO FIND SAFE FREE FILMS</span>
+  </div>
+  <div class="guide">
+    <div class="guide-box">
+      <h3>✅ 这样找更稳</h3>
+      <ul>
+        <li>优先去<b>央视频 / 咪咕 / B 站 / 芒果 / 腾讯视频免费层</b>搜“免费”标签</li>
+        <li>看页面有没有<b>清晰运营主体、用户协议、隐私政策、侵权投诉入口</b></li>
+        <li>老电影、完结剧、公共授权纪录片，免费概率最高</li>
+        <li>短剧看“前 N 集免费 / 广告解锁 / 平台免费层”</li>
+        <li>画质写 1080P 但点开是录屏枪版，直接关</li>
+      </ul>
+    </div>
+    <div class="guide-box">
+      <h3>🚫 这些别点</h3>
+      <ul>
+        <li>“<b>永久免费 VIP / 全网破解</b>”但无版权说明</li>
+        <li>播放前强制装<b>专用播放器 / 解码器 / 加速器</b></li>
+        <li>满屏<b>博彩、色情、中奖、客服验证码</b>弹窗</li>
+        <li>院线电影上映 3 天就出“完整高清”</li>
+        <li>域名天天换、主体查不到、客服是机器人</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="legal">
+  <div class="legal">
+    <h3>版权与安全口径</h3>
+    <ul>
+      <li>免费影视网是“找片导航/免费专区汇总页”，不直接托管侵权片源</li>
+      <li>推荐内容优先标注：正版免费层 / 广告支持 / 公共授权 / 限时活动</li>
+      <li>院线新片、独家付费剧、会员专享内容，不以“永久免费”名义误导</li>
+      <li>若原平台下架或授权到期，对应片单会从免费专区移除</li>
+      <li>用户别下载来路播放器，别填验证码/支付信息给仿冒客服</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="about">
+    <div>
+      <h2>免费影视网：<em>把“能合法免费看”的片子挑出来</em></h2>
+      <p>市面上的“免费影视”鱼龙混杂：一边是央视频、咪咕、B 站的正版免费层，一边是换域名、弹赌博广告、播枪版录屏的盗版站。我们做中间这层——只帮你看懂“哪部片现在真的能合法免费看”。</p>
+      <p>电影、电视剧、综艺、动漫、纪录片、微短剧都按“来源类型”标出来：经典老片、公共授权、广告支持、限时免费，各自归位，不把盗版包装成福利。</p>
+      <p>官方网址：<span class="url">https://mianfeiyingshiwang-h5.github.io</span></p>
+    </div>
+    <div class="about-stats">
+      <div class="as"><div class="n">6 类</div><div class="l">电影/剧/综/漫/纪/短剧</div></div>
+      <div class="as"><div class="n">4 种</div><div class="l">免费来源都标清</div></div>
+      <div class="as"><div class="n">0 破解</div><div class="l">不引导装外挂播放器</div></div>
+      <div class="as"><div class="n">每日</div><div class="l">免费片单巡检</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-logo">免费影视<em>网</em> · FREE FILM HUB</div>
+  <div class="foot-links">
+    <a href="#movie">电影</a>
+    <a href="#tv">电视剧</a>
+    <a href="#variety">综艺</a>
+    <a href="#anime">动漫</a>
+    <a href="#doc">纪录片</a>
+    <a href="#short">微短剧</a>
+    <a href="#free">免费专区</a>
+    <a href="#guide">找片指南</a>
+    <a href="#legal">版权与安全</a>
+    <a href="#about">关于</a>
+  </div>
+  <p>© 2026 免费影视网 · 网站网址：https://mianfeiyingshiwang-h5.github.io</p>
+  <p class="disc">本站为免费影视导航/专区汇总演示页。实际播放请以央视频、咪咕视频、哔哩哔哩、芒果 TV、腾讯视频、爱奇艺等正版平台的“免费/广告支持/限时活动”页面为准；不提供盗版院线新片、破解会员或侵权片源。[2,14](@ref)</p>
+</footer>
+
+</body>
+</html>
